@@ -1,11 +1,12 @@
 <hr>
 
 <div class="card" style="width: 20rem;">
-  <img src="Image des chatons" class="card-img-top" alt="...">
+  <img src=<%= @item.image_url %> class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Carte de l'items</h5>
-    <p class="card-text">Description de la photo</p>
+    <h5 class="card-title"><%= @item.title %></h5>
+    <p class="card-text"><%= @item.description %></p>
     <a href="#" class="btn btn-primary">Ajouter au panier</a>
+	<%= button_to "Ajouter au panier", cart_index_path, params: { :item_id => @item.id } %>
   </div>
 </div>
 
