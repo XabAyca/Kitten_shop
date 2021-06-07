@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user/show'
+  get 'item/show'
   root "static_pages#index"
   #get "static_pages/index"
   devise_for :users
