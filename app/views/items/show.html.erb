@@ -1,0 +1,14 @@
+<hr>
+
+<div class="card" style="width: 20rem;">
+  <img src=<%= @item.image_url %> class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= @item.title %></h5>
+    <p class="card-text"><%= @item.description %></p>
+	<% if !!current_user %>
+	<%= button_to "Ajouter au panier", user_cart_path(current_user.cart.id), method: "put", params: { :item_id => @item.id } %>
+	<% end %>
+  </div>
+</div>
+
+<hr>

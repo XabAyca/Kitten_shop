@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
   resources :users, only: [:show] do
-    resources :carts, only: [:show,:edit,:update]
+    resources :carts, only: [:show, :edit, :update]
   end
 
-  resources :items, only: [:show]  
+  resources :items, only: [:show]
   root "static_pages#index"
 
   post '/orders', to: 'orders#create'

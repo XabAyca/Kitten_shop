@@ -1,16 +1,17 @@
 <div class='containerfluid row m-4 d-flex justify-content-around'>
 
-  <%@items.each do |item|%>
+  <% @items.each do |item| %>
 
     <div class="card m-4" style="width: 18rem;">
-    <img class="card-img-top m-1" src="<%=item.image_url%>" alt="Card image cap">
+    <img class="card-img-top m-1" src="<%= item.image_url %>" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title"><%=item.title%></h5>
-        <p class="card-text"><%=item.description%></p>
-        <a href="#" class="btn btn-primary">Voir</a>
+        <h5 class="card-title"><%= item.title %></h5>
+        <p class="card-text"><%= item.description %></p>
+       
+		<%= link_to "voir", item_path(item), class: "btn btn-primary" %>
       </div>
     </div>
 
-  <%end%>
+  <% end %>
 
 <div>

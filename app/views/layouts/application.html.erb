@@ -19,51 +19,12 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Kitten Shop</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Nos Produits</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">A propos de nous</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Logg'In & Out
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">S'inscrire</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Se connecter</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Mon panier</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+ <%= render "layouts/navbar" %>
 
-
-
-<nav class="fixed-bottom navbar-dark bg-dark">
-  <div class="text-center">
-    <a class="navbar-brand" href="#">Powered by "Jocelin Queau, Xabi Aycaguer, Leo Lair, & Anthony Charron" </a>
-  </div>
-</nav>
-
-  <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
+  <%= render "layouts/notice" %>
     <%= yield %>
+<%= render "layouts/footer" %>
   </body>
-  
-  <!-- Bootstrap JS-->
+ 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
 </html>
