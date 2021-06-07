@@ -25,6 +25,8 @@
         </li>
       </ul>
     </div>
+	<% if !!current_user %>
 	<span style="color:white">	<%= current_user.cart.items.count %> item in cart</span>
+	<% end %>
   </div>
 </nav>
