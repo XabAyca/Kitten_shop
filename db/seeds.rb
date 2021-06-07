@@ -8,7 +8,7 @@
 
 ########## Delete All ##########
 Item.destroy_all
-User.destroy_all
+Cart.destroy_all
 JointItemsOrder.destroy_all
 
 ########## Create 10 items ########
@@ -28,8 +28,8 @@ end
   c = Cart.create()
   User.create!(
     email: Faker::Internet.email,
-    password: "ang9cbhoa8",
-    password_confirmation: "ang9cbhoa8",
+    password: "foobar",
+    password_confirmation: "foobar",
     carts_id: c.id,
   )
   puts "#{i} user(s) created and carts"
