@@ -9,6 +9,7 @@
 ########## Delete All ##########
 Item.destroy_all
 User.destroy_all
+JointItemsOrder.destroy_all
 
 ########## Create 10 items ########
 10.times do |i|
@@ -34,6 +35,23 @@ end
   puts "#{i} user(s) created and carts"
   puts "*" * (i + 1)
 end
+
+########## Create 20 orders & with random items ########
+10.times do |i|
+  
+  Order.create(
+    user_id:User.all.sample.id
+  )
+  puts "#{i} order(s) created"
+  puts "*"*(i+1)
+end
+30.times do |i|
+  JointItemsOrder.create(
+    order_id:Order.all.sample.id,
+    item_id:Item.all.sample.id
+  )
+end
+
 
 puts 'Well done ☢︎ , the seed it\'s OK 🎉 🎉 '
 

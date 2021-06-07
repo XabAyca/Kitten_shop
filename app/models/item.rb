@@ -9,5 +9,16 @@ class Item < ApplicationRecord
     presence: { message: "le prix est obligatoire" },
     numericality: { greater_than: 0, message: "Le prix doit-être supérieur à 0 euros" }
   validates :image_url,
+<<<<<<< HEAD
     presence: { message: 'Lien de l\'image obligatoire' }
+||||||| 16ee47c
+    presence:     {message:'Lien de l\'image obligatoire'}
+
+
+=======
+    presence:     {message:'Lien de l\'image obligatoire'}
+
+  has_many   :joint_items_orders
+  has_many   :orders, through: :joint_items_orders
+>>>>>>> development
 end
