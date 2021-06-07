@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2021_06_07_101158) do
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_carts_on_users_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 2021_06_07_101158) do
   end
 
   create_table "joint_items_carts", force: :cascade do |t|
-    t.bigint "items_id", null: false
-    t.bigint "carts_id", null: false
+    t.bigint "item_id", null: false
+    t.bigint "cart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["carts_id"], name: "index_joint_items_carts_on_carts_id"
-    t.index ["items_id"], name: "index_joint_items_carts_on_items_id"
+    t.index ["cart_id"], name: "index_joint_items_carts_on_cart_id"
+    t.index ["item_id"], name: "index_joint_items_carts_on_item_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_101158) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "carts", "users", column: "users_id"
-  add_foreign_key "joint_items_carts", "carts", column: "carts_id"
-  add_foreign_key "joint_items_carts", "items", column: "items_id"
+  add_foreign_key "carts", "users"
+  add_foreign_key "joint_items_carts", "carts"
+  add_foreign_key "joint_items_carts", "items"
 end

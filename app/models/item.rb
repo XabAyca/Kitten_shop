@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  has_many :joint_items_carts, dependent: :destroy
   has_many :carts, through: :joint_items_carts
   validates :title,
     presence: { message: "Le titre est obligatoire" }

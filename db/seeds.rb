@@ -39,7 +39,7 @@ puts 'Well done ☢︎ , the seed it\'s OK 🎉 🎉 '
 5.times do |i|
   p User.all.sample
   Cart.create!(
-    users_id: User.all.sample.id,
+    user_id: User.all.sample.id,
   )
   puts "#{i} carts created"
   puts "*" * (i + 1)
@@ -47,9 +47,13 @@ end
 ########## Create 3  joint item cart ########
 
 3.times do |i|
+  c = Cart.all.sample
+  item = Item.all.sample
+  p c
+  p item
   JointItemsCart.create!(
-    carts_id: Cart.all.sample,
-    items_id: Item.all.sample,
+    cart_id: c.id,
+    item_id: item.id,
   )
   puts "#{i} joint_item_cart table created"
   puts "*" * (i + 1)
