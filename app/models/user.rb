@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :cart, dependent: :destroy
+  after_create :user_cart
+
+  def user_cart
+    Cart.create(user_id: self.id)
+  end
 end

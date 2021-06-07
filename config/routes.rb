@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :user, only: [:show]
   resources :item, only: [:show]
-  resources :cart, only: [:create, :destroy]
+  resources :cart, only: [:update, :destroy]
 
   #devise_for :users, controllers: { sessions: "users/sessions",}
   devise_for :users
