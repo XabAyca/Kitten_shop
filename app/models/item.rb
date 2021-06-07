@@ -9,5 +9,6 @@ class Item < ApplicationRecord
   validates :image_url,
     presence:     {message:'Lien de l\'image obligatoire'}
 
-
+  has_many   :joint_items_orders
+  has_many   :orders, through: :joint_items_orders
 end
