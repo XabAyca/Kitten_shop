@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cart/show'
   get 'user/show'
   get 'item/show'
   root "static_pages#index"
