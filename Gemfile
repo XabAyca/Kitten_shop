@@ -7,6 +7,10 @@ ruby "2.7.3"
 gem "faker"
 #
 gem "table_print"
+# For online paiment
+gem 'stripe'
+#
+gem 'dotenv-rails'
 
 #added gems
 gem "devise", "~> 4.8"
