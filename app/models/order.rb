@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   validates :user, 
-    presence :true
+    presence: true
 
   has_many   :joint_items_orders
   has_many   :items, through: :joint_items_orders

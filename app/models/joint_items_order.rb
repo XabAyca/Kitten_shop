@@ -1,8 +1,8 @@
 class JointItemsOrder < ApplicationRecord
   validates :item,
-    presence :true
+    presence: true
   validates :order,
-    presence :true
+    presence: true
 
 belongs_to :item
 belongs_to :order 
