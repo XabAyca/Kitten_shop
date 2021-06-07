@@ -17,7 +17,7 @@ JointItemsOrder.destroy_all
     title: Faker::Creature::Cat.name,
     description: Faker::Lorem.sentence(word_count: rand(20..40)),
     price: Faker::Number.decimal(l_digits: 2),
-    image_url: Faker::LoremFlickr.image(size: "50x60", search_terms: ["cat"]),
+    image_url: Faker::LoremFlickr.image(size: "200x200", search_terms: ["cat"]),
   )
   puts "#{i} item(s) created"
   puts "*" * (i + 1)
@@ -38,20 +38,18 @@ end
 
 ########## Create 20 orders & with random items ########
 10.times do |i|
-  
   Order.create(
-    user_id:User.all.sample.id
+    user_id: User.all.sample.id,
   )
   puts "#{i} order(s) created"
-  puts "*"*(i+1)
+  puts "*" * (i + 1)
 end
 30.times do |i|
   JointItemsOrder.create(
-    order_id:Order.all.sample.id,
-    item_id:Item.all.sample.id
+    order_id: Order.all.sample.id,
+    item_id: Item.all.sample.id,
   )
 end
-
 
 puts 'Well done ☢︎ , the seed it\'s OK 🎉 🎉 '
 
