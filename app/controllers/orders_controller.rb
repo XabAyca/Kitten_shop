@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate?
+  before_action :authenticated?
 
   
   def show 
@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     @user.cart.items.each do |item|
       JointItemsOrder.create(order_id:@order.id,item_id:item.id)
     end
+    current_user.cart.items.destroy.all
 
     @amount = params[:total].to_d
     if @order.save 
@@ -23,13 +24,13 @@ class OrdersController < ApplicationController
         charge = Stripe::Charge.create({
         customer: customer.id,
         amount: @amount*100,
-        description: "Achat d'un produit",
-        currency: 'eur',
+        description: "Commande",
+        currency: 'auto',
         })
       rescue Stripe::CardError => e
         flash[:error] = e.message
-        redirect_to new_order_path
       end
+      redirect_to root_path, notice: 'Votre commande a bien été passé, vous recevrez vos images par e-mail'
     else
       flash.now[:danger] = @order.errors.full_messages
       render :back
