@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2021_06_07_175109) do
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
