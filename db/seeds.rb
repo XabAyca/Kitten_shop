@@ -24,26 +24,19 @@ end
 
 ########## Create 20 users ########
 20.times do |i|
+  c = Cart.create()
   User.create!(
     email: Faker::Internet.email,
     password: "ang9cbhoa8",
     password_confirmation: "ang9cbhoa8",
+    carts_id: c.id,
   )
-  puts "#{i} user(s) created"
+  puts "#{i} user(s) created and carts"
   puts "*" * (i + 1)
 end
 
 puts 'Well done ☢︎ , the seed it\'s OK 🎉 🎉 '
 
-########## Create 5  cart ########
-5.times do |i|
-  p User.all.sample
-  Cart.create!(
-    user_id: User.all.sample.id,
-  )
-  puts "#{i} carts created"
-  puts "*" * (i + 1)
-end
 ########## Create 3  joint item cart ########
 
 3.times do |i|
