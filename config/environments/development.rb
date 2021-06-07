@@ -75,5 +75,17 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   #added for devise
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => 'in-v3.mailjet.com',
+      :port                 => 587,
+      :domain               => 'mailjet.com',
+      :user_name            => '069c6c211883b0ad112943c1cc7c5994',
+      :password             => 'd42bc71ed308dfa89c8047b31fc554b8',
+      :authentication       => :plain ,
+      :enable_starttls_auto => true
+  }
 end
