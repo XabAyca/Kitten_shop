@@ -15,26 +15,20 @@ class OrdersController < ApplicationController
 
     @amount = params[:total].to_d
     if @order.save 
-      @session = Stripe::Checkout::Session.create({
-        payment_method_types: ['card'],
-        line_items: [{
-          price_data: {
-            currency: 'eur',
-            product_data: {
-              name: 'Cat picks',
-            },
-            unit_amount: (@amount*100).to_i,
-          },
-          quantity: 1,
-        }],
-        mode: 'payment',
-        # These placeholder URLs will be replaced in a following step.
-        success_url: root_path, notice:'Le paiment de a bien été effectué'
-        cancel_url: redirect_to :back, flash.now[:danger]='Le paiment a échoué'
-      })
-
-      respond_to do |format|
-        format.js
+      begin
+        customer = Stripe::Customer.create({
+        email: params[:stripeEmail],
+        source: params[:stripeToken],
+        })
+        charge = Stripe::Charge.create({
+        customer: customer.id,
+        amount: @amount*100,
+        description: "Achat d'un produit",
+        currency: 'eur',
+        })
+      rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to new_order_path
       end
     else
       flash.now[:danger] = @order.errors.full_messages
