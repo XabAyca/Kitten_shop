@@ -1,4 +1,4 @@
 class Cart < ApplicationRecord
-  belongs_to :users
+  belongs_to :user
   has_many :items, through: :joint_items_carts
 end
