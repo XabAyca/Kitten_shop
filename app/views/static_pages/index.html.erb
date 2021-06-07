@@ -10,9 +10,7 @@
       Voici ton email : <%= current_user.email %>
     </li>
 
-    <li>
-      <%= link_to "Secret page", static_pages_secret_path %>
-    </li>
+
 
     <li>
       <%= link_to "Edit email / password", edit_user_registration_path %>
@@ -31,3 +29,4 @@
 </ul>
 </nav>
 <h1>Homepage</h1>
+<%= render "items_cards_list" %>

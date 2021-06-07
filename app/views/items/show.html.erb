@@ -5,8 +5,9 @@
   <div class="card-body">
     <h5 class="card-title"><%= @item.title %></h5>
     <p class="card-text"><%= @item.description %></p>
-    <a href="#" class="btn btn-primary">Ajouter au panier</a>
+	<% if !!current_user %>
 	<%= button_to "Ajouter au panier", user_cart_path(current_user.cart.id), method: "put", params: { :item_id => @item.id } %>
+	<% end %>
   </div>
 </div>
 
