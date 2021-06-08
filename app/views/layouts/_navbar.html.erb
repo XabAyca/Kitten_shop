@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <i class="fas fa-cat fa-3x me-5 ms-2 my-2" style='color:white'></i>
     <a class="navbar-brand" href="<%= root_path %>">Kitten Shop</a>
@@ -22,6 +22,9 @@
           <a class="btn btn-outline-primary dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %></a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="<%= user_path(current_user.id) %>">Profil</a>
+            <%if current_user.admin == true %>
+              <a class="dropdown-item" href="<%= admin_root_path %>">Dashboard</a>
+            <%end%>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-method='delete'>Se déconnecter</a>
           </div>

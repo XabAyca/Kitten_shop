@@ -1,1 +1,2 @@
-<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="586" height="247" style="display: block; width: 586px; height: 247px;"></canvas>
+<h6>Evolution des commandes/jour</h6>
+<%= area_chart Order.group_by_day(:created_at).count%>
