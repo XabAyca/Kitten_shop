@@ -1,3 +1,4 @@
+<div style="height:100vh">
 <h2>Edition du profil utilisateur <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -31,6 +32,15 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first name" %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last name" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
@@ -41,3 +51,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Etes vous sur?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>

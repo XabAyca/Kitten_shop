@@ -10,5 +10,19 @@
 	<%= link_to "edit profile", edit_user_registration_path %>
   </div>
 </div>
+<% @orders.each do |order| %>
+
+<div class="card">
+	<%= order.id %>
+	<%= order.created_at %>
+		<% order.joint_items_orders.each do |joint_item| %>
+	<%= joint_item.item.title %>
+	<%= joint_item.item.description %>
+	<img src=<%= joint_item.item.image_url %> >
+	<% end %>
 </div>
+<% end %>
 <hr>
+
+</div>
+

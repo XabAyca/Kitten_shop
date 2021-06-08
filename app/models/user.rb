@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :cart, dependent: :destroy
   after_create :user_cart
+  has_many :order
 
   def user_cart
     Cart.create(user_id: self.id)
