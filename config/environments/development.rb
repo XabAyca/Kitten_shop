@@ -83,8 +83,8 @@ Rails.application.configure do
       :address              => 'in-v3.mailjet.com',
       :port                 => 587,
       :domain               => 'mailjet.com',
-      :user_name            => '069c6c211883b0ad112943c1cc7c5994',
-      :password             => 'd42bc71ed308dfa89c8047b31fc554b8',
+      :user_name            => ENV['MAIL_USER'],
+      :password             => ENV['MAIL_PASS'],
       :authentication       => :plain ,
       :enable_starttls_auto => true
   }
