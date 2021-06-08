@@ -6,17 +6,19 @@
 <main class=" text-center form-signin" style="    
 	flex-direction: column;
     display: flex;
-    align-items: center;">
+    align-items: center;
+	height:70vh;
+	">
 	<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
    <div class="form-floating field" style="margin-bottom:10px" >
-    <%# f.label :email %>
-    <%= f.email_field :email,  autofocus: true, autocomplete: "email", class:"form-control", placeholder:"name@example.com", style:"min-width:250px" %>
+    <% # f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@example.com", style: "min-width:250px" %>
 	 <label for="floatingInput">Email address</label>
   </div>
   <div class="form-floating field" >
-    <%# f.label :email %>
-	  <%= f.password_field :password, autocomplete: "current-password", placeholder:"Password", class:"form-control" %>
+    <% # f.label :email %>
+	  <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control" %>
 	 <label for="floatingInput">Password</label>
   </div>
   <div class="checkbox mb-3">
