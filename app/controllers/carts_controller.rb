@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @cart = Cart.find_by(user_id: current_user.id)
   end
