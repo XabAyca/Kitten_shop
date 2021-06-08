@@ -1,5 +1,6 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
+    <i class="fas fa-cat fa-3x me-5 ms-2 my-2" style='color:white'></i>
     <a class="navbar-brand" href="<%= root_path %>">Kitten Shop</a>
 	
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,29 +12,28 @@
           <a class="nav-link active" aria-current="page" href="<%= team_path %>">La team</a>
         </li>
       </ul>
+      <% if current_user %>
+        <a style="color:white" href="<%=user_cart_path(current_user.id,current_user.cart.id)%>" data-method='get'>	<%= current_user.cart.items.count %> <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+        </svg></a>
+      <% end %>
+      <div class="nav-item dropdown mx-5">
+        <% if user_signed_in? %>
+          <a class="btn btn-outline-primary dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="<%= user_path(current_user.id) %>">Profil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-method='delete'>Se déconnecter</a>
+          </div>
+        <% else %> 
+          <a class="btn btn-outline-primary dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Connexion</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="<%= new_user_session_path %>">Se connecter</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<%= new_user_registration_path %>">S'inscrire</a>
+          </div>
+        <% end %> 
+      </div>
     </div>
-    <% if current_user %>
-      <a style="color:white" href="<%=user_cart_path(current_user.id,current_user.cart.id)%>">	<%= current_user.cart.items.count %> <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
-      <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-      </svg></a>
-    <% end %>
-     <div class="nav-item dropdown mx-5">
-      <% if user_signed_in? %>
-        <a class="btn btn-outline-primary dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %></a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="<%= user_path(current_user.id) %>">Profil</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-method='delete'>Se déconnecter</a>
-        </div>
-      <% else %> 
-        <a class="btn btn-outline-primary dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Connexion</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="<%= new_user_session_path %>">Se connecter</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<%= new_user_registration_path %>">S'inscrire</a>
-        </div>
-      <% end %> 
-    </div>
-
   </div>
 </nav>
