@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     resources :carts, only: [:show, :edit, :update]
   end
 
-  resources :items, only: [:show]
+  resources :items, only: [:show,:destroy]
+  
   root "static_pages#index"
 
   post '/orders', to: 'orders#create'

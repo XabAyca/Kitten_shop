@@ -1,0 +1,22 @@
+<div class='container'>
+  <ol class="list-group list-group-numbered">
+    <%@cart.items.each do |item|%>
+      
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">
+            <img src='<%=item.image_url%>' style='width:100px' class="float-left">
+            <%=item.title%>
+            <%=item.price%> euros
+          </div>
+        </div>
+        <div class="ms-2">
+          <a href="<%=item_path(item.id)%>" data-method='delete' class="badge bg-primary rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+          <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+          </svg></a>
+          <p>Quantité 1</p>
+        </div>
+      </li>
+    <%end%>  
+  </ol>
+</div>
