@@ -1,11 +1,3 @@
 <%=render 'jumbotron'%>
 
-
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-description="Achat d'un produit"
-    data-amount="500"
-    data-locale="auto">
-</script>
-
 <%=render 'items_cards_list'%>

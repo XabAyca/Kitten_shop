@@ -7,5 +7,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:first_name, :last_name, :description, :email, :password, :password_confirmation, :current_password, :admin)}
   end
 
+  def is_user_cart?
+    @cart = Cart.find(params[:id])
+    if @cart != current_user.cart
+      redirect_to root_path, notice:'Ce n\'est pas votre panier'
+    end
+  end
 
 end

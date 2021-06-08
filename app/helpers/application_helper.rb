@@ -8,5 +8,6 @@ module ApplicationHelper
       when 'alert' then "alert-warning"
     end
   end
+
   
 end
