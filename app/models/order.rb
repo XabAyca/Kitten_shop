@@ -10,4 +10,13 @@ class Order < ApplicationRecord
     def thank_user_order
       ApplicationMailer.thank_user_order(self).deliver
     end
+
+    def total 
+      total=0
+      self.items.each do |item|
+        total += item.price
+      end
+      return total
+    end
+
 end

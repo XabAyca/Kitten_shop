@@ -10,14 +10,26 @@
       </tr>
     </thead>
     <tbody>
-      <%@orders.each do |order|%>
-        <tr>
-          <td><%=order.id%></td>
-          <td><%=order.user.email%></td>
-          <td><%=order.items.count%></td>
-          <td><%=order.items[0]%></td>
-          <td><%=order.created_at%>/td>
-        </tr>
+      <%if @orders.count > 5
+          5.times do |index|%>
+            <tr>
+              <td><%=@orders[index].id%></td>
+              <td><%=@orders[index].user.email%></td>
+              <td><%=@orders[index].items.count%></td>
+              <td><%=@orders[index].total%> €</td>
+              <td><%=@orders[index].created_at%></td>
+            </tr>
+          <%end%>  
+        <%else%>
+          <%@orders.each do |order|%>
+            <tr>
+              <td><%=order.id%></td>
+              <td><%=order.user.email%></td>
+              <td><%=order.items.count%></td>
+              <td><%=order.total%> €</td>
+              <td><%=order.created_at%></td>
+            </tr>  
+          <%end%>
       <%end%>
     </tbody>
   </table>
