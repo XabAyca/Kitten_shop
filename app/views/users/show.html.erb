@@ -1,13 +1,14 @@
 <hr>
-
+<div style="height:70vh">
 <div class="card" style="width: 20rem;">
-  <img src="Image des chatons" class="card-img-top" alt="...">
+  <img src="https://picsum.photos/200" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Profils de l'utilisateur</h5>
     <h3 class="card-text">Description </h3>
-    <p class="card-text">@user.first-name</p>
-    <p class="card-text">@user.last-name</p>
+    <p class="card-text"><%= current_user.first_name %></p>
+    <p class="card-text"><%= current_user.last_name %></p>
+	<%= link_to "edit profile", edit_user_registration_path %>
   </div>
 </div>
-
+</div>
 <hr>
