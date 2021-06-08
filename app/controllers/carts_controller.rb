@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :is_user_cart?, only: [:show]
 
   def show
     @cart = Cart.find_by(user_id: current_user.id)
@@ -21,10 +21,5 @@ class CartsController < ApplicationController
       end
     end
   end
-
-  def destroy
-  end
-
-
 
 end
