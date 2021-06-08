@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email utilisateur</th>
+        <th>Objects</th>
+        <th>Prix total</th>
+        <th>date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@orders.each do |order|%>
+        <tr>
+          <td><%=order.id%></td>
+          <td><%=order.user.email%></td>
+          <td><%=order.items.count%></td>
+          <td><%=order.items[0]%></td>
+          <td><%=order.created_at%>/td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

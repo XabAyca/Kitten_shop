@@ -4,8 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :orders
   has_one :cart, dependent: :destroy
+  
   after_create :user_cart
+  
 
   def user_cart
     Cart.create(user_id: self.id)
