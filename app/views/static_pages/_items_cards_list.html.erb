@@ -1,17 +1,22 @@
-<div class='containerfluid row ml-2 mr-2 d-flex justify-content-around gx-0'>
-
+<div class="cards__wrapper">
   <% @items.each do |item| %>
 
-    <div class="card m-4" style="width: 18rem;">
-    <img class="card-img-top m-1" src="<%= item.image_url %>" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= item.title %></h5>
-        <p class="card-text"><%= item.description %></p>
-       
-		<%= link_to "voir", item_path(item), class: "btn btn-primary" %>
+  <div class="card">
+    <div class="card__img">
+      <img src="<%= item.image_url %>" alt="Card image cap" />
+    </div>
+    <div class="card__text">
+      <h4 class="card__title"><%= item.title %></h4>
+      <p class="card__description"><%= item.description %></p>
+      <div class="card__buttons">
+        <%= link_to "Voir", item_path(item), class: "card__button btn
+                                btn__primary first" %>
+        <button class="card__button btn btn__secondary">
+          Ajouter au panier
+        </button>
       </div>
     </div>
+  </div>
 
   <% end %>
-
-<div>
+</div>

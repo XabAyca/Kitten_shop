@@ -9,13 +9,12 @@ class User < ApplicationRecord
 
   after_create :user_cart
   has_many :order
-  has_one_attached :avatar
 
   def user_cart
     Cart.create(user_id: self.id)
   end
 
-  after_create :welcome_email
+  #after_create :welcome_email
 
   def welcome_email
     UserMailer.welcome_email(self).deliver
