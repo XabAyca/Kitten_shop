@@ -6,9 +6,13 @@ class Order < ApplicationRecord
   has_many   :items, through: :joint_items_orders
   belongs_to :user
     #after_create :thank_user_order
+    #after_create :user_order_for_admin
 
     def thank_user_order
       ApplicationMailer.thank_user_order(self).deliver
+    end
+    def user_order_for_admin
+      ApplicationMailer.user_order_for_admin(self).deliver
     end
 
     def total 

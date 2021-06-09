@@ -7,6 +7,11 @@ class ApplicationMailer < ActionMailer::Base
     @order = order
     mail(to: @order.user.email, subject: 'Merci pour votre commande')
   end
+  def user_order_for_admin(order)
+    admin = User.find_by(admin: true)
+    @order = order
+    mail(to: admin.email, subject: 'Commande sur Kitten shop')
+  end
 
 
 end
