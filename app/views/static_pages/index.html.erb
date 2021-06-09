@@ -1,3 +1,20 @@
-<%=render 'jumbotron'%>
 
-<%=render 'items_cards_list'%>
+ <div class="hero">
+      <div class="hero__text">
+        <h1 class="hero__title tagline">
+          Collectionnez vos photos de chats preferes !
+        </h1>
+        <p class="description hero__description">
+          l’opportunite unique d’acquerir des photos de chat qui voudront
+          bientot plus que des cartes pokemon !
+        </p>
+        <button class="hero__cta btn ">Acheter une photo de chat</button>
+      </div>
+	  <div class="hero__img">
+	<%= image_tag("cats_hero_image.png") %>
+	  </div>
+    </div>
+<section class="items">
+	<h2>Nos chats star</h2>
+	<%=render 'items_cards_list'%>
+</section>
