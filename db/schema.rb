@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_175109) do
+ActiveRecord::Schema.define(version: 2021_06_09_070455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,8 +66,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_175109) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.bigint "carts_id"
-    t.index ["carts_id"], name: "index_users_on_carts_id"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -75,5 +74,4 @@ ActiveRecord::Schema.define(version: 2021_06_07_175109) do
   add_foreign_key "carts", "users"
   add_foreign_key "joint_items_carts", "carts"
   add_foreign_key "joint_items_carts", "items"
-  add_foreign_key "users", "carts", column: "carts_id"
 end

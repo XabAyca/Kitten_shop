@@ -10,6 +10,9 @@
 Item.destroy_all
 Cart.destroy_all
 JointItemsOrder.destroy_all
+User.destroy_all
+Order.destroy_all
+JointItemsCart.destroy_all
 
 ########## Create 10 items ########
 10.times do |i|
@@ -25,12 +28,12 @@ end
 
 ########## Create 20 users ########
 20.times do |i|
-  c = Cart.create()
   User.create!(
+    first_name:Faker::Games::Zelda.character,
+    last_name:Faker::JapaneseMedia::DragonBall.race,
     email: Faker::Internet.email,
     password: "foobar",
     password_confirmation: "foobar",
-    carts_id: c.id,
   )
   puts "#{i} user(s) created and carts"
   puts "*" * (i + 1)
@@ -44,22 +47,18 @@ end
   puts "#{i} order(s) created"
   puts "*" * (i + 1)
 end
-30.times do |i|
+50.times do |i|
   JointItemsOrder.create(
     order_id: Order.all.sample.id,
     item_id: Item.all.sample.id,
   )
 end
 
-puts 'Well done ☢︎ , the seed it\'s OK 🎉 🎉 '
-
 ########## Create 3  joint item cart ########
 
 3.times do |i|
   c = Cart.all.sample
   item = Item.all.sample
-  p c
-  p item
   JointItemsCart.create!(
     cart_id: c.id,
     item_id: item.id,
@@ -67,3 +66,5 @@ puts 'Well done ☢︎ , the seed it\'s OK 🎉 🎉 '
   puts "#{i} joint_item_cart table created"
   puts "*" * (i + 1)
 end
+
+puts 'Well done ☢︎ , the seed it\'s OK 🎉 🎉 '
