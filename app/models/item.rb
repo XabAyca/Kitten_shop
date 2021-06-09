@@ -13,4 +13,5 @@ class Item < ApplicationRecord
 
   has_many :joint_items_orders
   has_many :orders, through: :joint_items_orders
+  has_one_attached :item_image
 end

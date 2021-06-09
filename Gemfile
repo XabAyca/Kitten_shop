@@ -6,6 +6,8 @@ ruby "2.7.3"
 #
 gem "faker"
 #
+gem 'dotenv'
+#
 gem "table_print"
 # For online paiment
 gem 'stripe'

@@ -3,6 +3,11 @@
 <div class="card" style="width: 20rem;">
   <img src="https://picsum.photos/200" class="card-img-top" alt="...">
   <div class="card-body">
+  <% if current_user.avatar.attached? %>
+  <%= image_tag current_user.avatar, alt: "avatar" %>
+  <% else %>
+  <p>no real photo for this user
+<% end %>
     <h5 class="card-title">Profils de l'utilisateur</h5>
     <h3 class="card-text">Description </h3>
     <p class="card-text"><%= current_user.first_name %></p>

@@ -227,6 +227,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.8)
+  dotenv
   dotenv-rails
   faker
   jbuilder (~> 2.7)
