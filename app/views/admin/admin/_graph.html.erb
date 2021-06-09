@@ -1,0 +1,2 @@
+<h6>Evolution des commandes/jour</h6>
+<%= area_chart Order.group_by_day(:created_at).count%>

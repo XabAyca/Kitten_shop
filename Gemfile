@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.3"
 
+# For charts
+gem "chartkick"
+gem 'groupdate'
 #
 gem "faker"
 #
