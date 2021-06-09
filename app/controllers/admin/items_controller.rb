@@ -16,11 +16,14 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new 
+	p "*"*20
+	p @item
     @item = Item.new()
   end
 
   def create
     @item = Item.new(post_params())
+
     if @item.save
       redirect_to admin_items_path, notice:'Produit créé'
     else
@@ -46,7 +49,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def post_params
-    params.require(:item).permit(:title,:description,:price,:image_url)
+    params.require(:item).permit(:title,:description,:price,:image_url,:item_image)
   end
 
 end

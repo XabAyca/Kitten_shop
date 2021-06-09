@@ -2,21 +2,25 @@
   <%= form_with model: [:admin, @item], method: :put do |form| %>
     <div class="form-group">
       <label>Titre</label>
-      <%= form.text_field :title, class:"form-control" %>
+      <%= form.text_field :title, class: "form-control" %>
     </div>
     <div class="form-group">
       <label>Description</label>
-      <%= form.text_area :description, class:"form-control"%>
+      <%= form.text_area :description, class: "form-control" %>
     </div>
     <div class="form-group">  
       <label>Prix (euros)</label>
-      <%= form.number_field :price, :step => 0.01,min:1, class:"form-control" %>
+      <%= form.number_field :price, :step => 0.01, min: 1, class: "form-control" %>
     </div>  
     <div class="form-group">  
       <label>Image URL</label>
-      <%= form.url_field :image_url, class:"form-control" %>
-    </div>      
+      <%= form.url_field :image_url, class: "form-control" %>
+    </div>     
+	<div class="form-group">  
+      <label>img file</label>
+      <%= form.file_field :item_image, class: "form-control" %>
+    </div> 
     <br><br>
-      <%= form.submit "Modifier", class:"btn btn-primary" %>
+      <%= form.submit "Modifier", class: "btn btn-primary" %>
   <% end %>
 </div>

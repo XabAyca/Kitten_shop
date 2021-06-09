@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :carts, only: [:show, :edit, :update]
   end
 
-  resources :items, only: [:show, :destroy]
+  resources :items, only: [:show, :destroy] do
+    resources :item_images, only: [:create, :update]
+  end
 
   root "static_pages#index"
 

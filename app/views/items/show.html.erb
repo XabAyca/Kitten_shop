@@ -2,6 +2,11 @@
 <div style="height:80vh">
 <div class="card" style="width: 20rem;">
   <img src=<%= @item.image_url %> class="card-img-top" alt="...">
+  <% if @item.item_image.attached? %>
+  <%= image_tag @item.item_image, alt: "item image" %>
+  <% else %>
+  <p>no active record photo</p>
+  <% end %>
   <div class="card-body">
     <h5 class="card-title"><%= @item.title %></h5>
     <p class="card-text"><%= @item.description %></p>

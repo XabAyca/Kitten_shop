@@ -15,8 +15,13 @@
     <div class="form-group">  
       <label>Image URL</label>
       <%= form.url_field :image_url, class:"form-control" %>
-    </div>      
+    </div>
+	 <div class="form-group">  
+      <label>img file</label>
+      <%= form.file_field :item_image, class:"form-control" %>
+    </div>            
     <br><br>
       <%= form.submit "Créer", class:"btn btn-primary" %>
   <% end %>
+
 </div>
