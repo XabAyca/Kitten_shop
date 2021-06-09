@@ -12,13 +12,14 @@ Rails.application.routes.draw do
   post '/orders', to: 'orders#create'
   get '/team', to: 'static_pages#team'
 
+
+### Admin routes ###
   namespace :admin do
     root 'admin#index'
-    resources :users
+    resources :users, only: [:index, :destroy, :update]
     resources :admin, only: :index
-    resources :items
-    resources :carts
-    resources :orders
+    resources :items, except: :show
+    resources :orders, only: [:index, :destroy]
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
