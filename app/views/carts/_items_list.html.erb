@@ -7,7 +7,7 @@
 <div>
   <%@cart.items.each do |item|%>
 
-    <div class='flex-row d-flex justify-content-between align-items-center'>
+    <div class='flex-row d-flex justify-content-between align-items-center' id='card-items'>
 
       <div class='flex-row d-flex align-items-center'>
         <%= image_tag item.item_image,height:50, alt: "item_image", class:'item-img me-3' %>
@@ -15,14 +15,14 @@
       </div>  
 
       <div class='flex-row d-flex align-items-center'>
-        <a href="<%=item_path(item.id)%>" data-method='delete' class="me-4 trash">
+        <a href="<%=item_path(item.id)%>" data-method='delete' data-remote='true' class="me-4 trash">
           Supprimer
         </a>
         <h5><small class="text-muted">1 x</small> <%= item.price%> €</h5>
       </div> 
-
+      
     </div>
-    <hr class='my-2'> 
+    <hr class='my-2' id='separator-items'> 
   <%end%>
 
 </div>
