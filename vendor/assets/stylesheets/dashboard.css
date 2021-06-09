@@ -13,16 +13,16 @@ body {
  */
 
 .sidebar {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 90px;
   /* rtl:raw:
   right: 0;
   */
-  bottom: 0;
+  bottom: 50px;
   /* rtl:remove */
   left: 0;
-  z-index: 1; /* Behind the navbar */
-  padding: 48px 0 0; /* Height of navbar */
+  z-index: 0; /* Behind the navbar */
+  padding: 0px 0 0; /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
