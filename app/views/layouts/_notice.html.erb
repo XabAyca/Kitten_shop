@@ -1,4 +1,18 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<p class="success"><%= alert %></p>
-<p class="success"><%= alert %></p>
+<% flash.each do |type, message| %>
+  <div id="flash-block" class="alert <%= bootstrap_class_for_flash(type) %> alert-dismissible" role="alert">
+    <button type="button" id="btn-flash" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    <%= message %>
+  </div>
+<% end %>
+
+<script>
+try {
+let btn_flash = document.getElementById("btn-flash");
+let flash_block = document.getElementById("flash-block");
+btn_flash.addEventListener("click", function() {
+  flash_block.classList.add('invisible')
+});
+}catch (error) {
+}
+
+</script>
