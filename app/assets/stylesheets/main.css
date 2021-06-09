@@ -20,7 +20,9 @@ html{
 	--primaryFont:"Poppins";
 	--secondaryFont:"Roboto"
 }
-
+*{
+	box-sizing: border-box;
+}
 body{
 	font-family: var(--primaryFont);
 	color:var(--warmBlack)
