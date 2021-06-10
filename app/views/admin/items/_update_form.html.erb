@@ -11,11 +11,7 @@
     <div class="form-group">  
       <label>Prix (euros)</label>
       <%= form.number_field :price, :step => 0.01, min: 1, class: "form-control" %>
-    </div>  
-    <div class="form-group">  
-      <label>Image URL</label>
-      <%= form.url_field :image_url, class: "form-control" %>
-    </div>     
+    </div>      
 	<div class="form-group">  
       <label>img file</label>
       <%= form.file_field :item_image, class: "form-control" %>

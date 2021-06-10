@@ -14,17 +14,20 @@
 
 .sidebar {
   position: absolute;
-  top: 75px;
+  top: 150px;
   /* rtl:raw:
   right: 0;
   */
-  bottom: 0px;
+  bottom: 150px;
   /* rtl:remove */
   left: 0;
   z-index: 0; /* Behind the navbar */
   padding: 0px 0 0; /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-}
+  border-radius: 0px 10px 10px 0;
+  border:2px solid #93d5a7;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.101);
+} 
 
 @media (max-width: 767.98px) {
   .sidebar {

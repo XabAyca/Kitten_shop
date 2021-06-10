@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show], path: 'utilisateur' do
     resources :avatars, only: [:create, :update]
-    resources :carts, only: [:show, :edit, :update]
+    resources :carts, only: [:show, :edit, :update], path: 'panier'
   end
 
-  resources :items, only: [:show, :destroy] do
+  resources :items, only: [:show, :destroy], path: 'produit'do
     resources :item_images, only: [:create, :update]
   end
 
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post "/orders", to: "orders#create"
   get "/team", to: "static_pages#team"
 
+  resources :orders, only: [:show]
   ### Admin routes ###
   namespace :admin do
     root "admin#index"

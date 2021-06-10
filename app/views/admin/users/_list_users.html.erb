@@ -19,8 +19,8 @@
           <tr id='user<%=user.id%>'>
             <td><%=user.id%></td>
             <td nowrap><%=user.email%></td>
-            <td nowrap><%=user.last_name%></td>
-            <td nowrap><%=user.first_name %></td>
+            <td nowrap><%=user.last_name.capitalize%></td>
+            <td nowrap><%=user.first_name.capitalize %></td>
             <td><%=user.cart.id%></td>
             <td><%=user.orders.count%></td>
             <td><%=user.created_at.strftime('%d/%m/%Y')%></td>
