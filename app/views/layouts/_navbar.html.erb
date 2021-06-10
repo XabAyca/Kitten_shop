@@ -1,22 +1,22 @@
 <header class="p-1 border-bottom bg-white index">
   <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-end">
-      <a href="<%= root_path %>" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-        <i class="fas fa-cat fa-3x me-5 ms-2 my-2"></i>
-        <span class='fs-4 text-secondary'>Kitten Shop</span>
+    <div class="d-flex flex-wrap align-items-center justify-content-center  justify-content-lg-end">
+      <a href="<%= root_path %>" class=" d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <i class="fas fa-cat fa-3x me-5 ms-2 my-2 "></i>
+        <span class='fs-4 title'>Kitten Shop</span>
       </a>
 
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center ms-md- mb-md-0">
-        <li><a href="<%= team_path %>" class="nav-link px-2 link-secondary">L'équipe</a></li>
+      <ul class="align-self-end nav col-12 col-lg-auto ms-5 me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="<%= team_path %>" class="nav-link px-2 team">L'équipe</a></li>
       </ul>
 
       <% if current_user %>
-        <a class='mx-md-5 text-decoration-none cart-count' id='cart-count' href="<%=user_cart_path(current_user.id,current_user.cart.id)%>" data-method='get'><span class='fs-4'><%= current_user.cart.items.count %>  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+        <a class='mx-md-5 text-decoration-none cart-count align-self-end mb-2' id='cart-count' href="<%=user_cart_path(current_user.id,current_user.cart.id)%>" data-method='get'><span class='fs-4'><%= current_user.cart.items.count %>  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
         <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z"/>
         </svg></span></a>
       <% end %>
 
-      <div class="dropdown text-end">
+      <div class="dropdown text-end align-self-end mb-1">
         <% if user_signed_in? %>
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <%= current_user.email %>
