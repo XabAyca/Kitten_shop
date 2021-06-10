@@ -1,60 +1,72 @@
-<div style="height:100vh">
-<h2>Edition du profil utilisateur <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="container mt-2">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <main class=" text-center form-signin" style="    
+	  flex-direction: column;
+    display: flex;
+    align-items: center;
+	  height:70vh
+	  ">
+	  <h1 class="h3 mb-3 fw-normal">Modifier mon profil</h1>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>En attente de confirmation: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <div class="align-item-in-form border-field block-center mb-2">
+      <%= form_tag user_avatars_path(@user), multipart: true do %> 
+        <% if current_user.avatar.attached? %>
+        <%= image_tag current_user.avatar, alt: "avatar", class: "img_profile-sm img-cicle " %>
+        <% else %>
+        <%= image_tag 'profile_empty', alt: "avatar" , class: "img_profile-sm img-cicle"%>
+      <% end %>
+        <%= file_field_tag :avatar , class: "hover-pointer"%>
+        <%= submit_tag "Mettre à jour" , class: "btn btn-success"%>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(ne pas remplir si vous souhaitez ne rien changer.)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> caractères minimum </em>
+    <div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-floating field" style="margin-bottom:10px" >
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@example.com", style: "min-width:250px" %>
+	      <label for="floatingInput">Email</label>
+      </div>
+
+      <div class="form-floating field" style="margin-bottom:10px" >
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Nouveau Password", class: "form-control" %>
+        <label for="floatingInput">Mot de passe</label>
+      </div>
+        <div class="form-floating field" style="margin-bottom:10px" >
+          <% # f.label :email %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation", class: "form-control" %>
+        
+        <label for="floatingInput">Confirmation mot de passe</label>
+      </div>
+
+      <div class="form-floating field" style="margin-bottom:10px" >
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", placeholder: "Password", class: "form-control" %>
+        <label for="floatingInput">Prénom</label> 
+      </div>
+      <div class="form-floating field" style="margin-bottom:10px" >
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last name", placeholder: "last_name", class: "form-control" %>
+        <label for="floatingInput">Nom</label>
+      </div>
+
+      <div class="form-floating field" style="margin-bottom:10px" >
+        <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Password Confirmation", class: "form-control" %>
+        <label for="floatingInput">Mot de passe actuel</label>
+      </div>
+
+      <div class="form-floating field" style="margin-bottom:10px" >
+        <button class="w-100 btn btn-lg btn__primary" type="submit" style="align-self">
+	    Modifier
+	 </button>
+      </div>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <p>Tu préfères les chiens ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes vous sur?" }, method: :delete, class:'btn btn__secondary' %></p>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(Veuillez taper votre mot de passe pour valider les changements)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+    <%= link_to "Back", :back, class:'back_link' %>
+    </div>
 
-   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first name" %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last name" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Changer d'avatar ?</h3>
-<%= form_tag user_avatars_path(@user), multipart: true do %> 
-  <%= file_field_tag :avatar %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
-
-<h3>Supprimer mon compte</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Etes vous sur?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  </main>
 </div>

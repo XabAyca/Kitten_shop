@@ -49,7 +49,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def post_params
-    params.require(:item).permit(:title,:description,:price,:image_url,:item_image)
+    params.require(:item).permit(:title,:description,:price,:item_image)
   end
 
 end
