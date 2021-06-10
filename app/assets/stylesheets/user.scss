@@ -4,3 +4,33 @@
 .img_profile {
     height: 13rem;
 }
+
+.img_profile-sm {
+    height: 3.5rem;
+}
+
+.img-cicle {
+    border-radius: 50%;
+}
+
+.align-item-in-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hover-pointer:hover {
+    cursor: pointer;
+}
+
+.border-field {
+    border: .1rem solid gray;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: max-content;
+}
+
+.block-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
