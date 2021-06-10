@@ -14,8 +14,5 @@
       <%= email_image_tag(item.item_image.blob.filename) %>
     </div>
     <% end %>
-	<%=   @order.items.each_with_inde do |item,i| %>
-	<%= image_tag(attachments["img_#{i}"].url) %>
-	<%end%>
   </body>
 </html>
