@@ -14,7 +14,9 @@
       <div class="name">
         <%= current_user.first_name %> <%= current_user.last_name %>
       </div>
+	  <div class="profile__btn__wrapper__edit">
 			<%= button_to "Modifier profil", edit_user_registration_path(current_user.id), method: "get", class:'btn btn__secondary mt-2 item_to_cart' %>
+		</div>
     </div>
     <div class="orders__wrapper">
       <h3 class="orders__title">Commandes</h3>
