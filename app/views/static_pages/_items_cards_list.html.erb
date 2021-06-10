@@ -6,7 +6,7 @@
       <% if item.item_image.attached? %>
   <%= image_tag item.item_image, alt: "item_image" %>
   <% else %>
-  <p>no real img</p>
+  <%= image_tag 'cat', alt: "item image" %>
 <% end %>
 	 	
     </div>
@@ -15,7 +15,7 @@
       <p class="card__description"><%= item.description %></p>
       <div class="card__buttons">
         <%= link_to "Voir", item_path(item), class: "card__button btn
-                                                                                                                                btn__primary first" %>
+            btn__primary first" %>
         <button class="card__button btn btn__secondary">
           Ajouter au panier
         </button>

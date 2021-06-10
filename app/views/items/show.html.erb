@@ -6,7 +6,8 @@
   <% if @item.item_image.attached? %>
   <%= image_tag @item.item_image, alt: "item image" %>
   <% else %>
-  <p>no active record photo</p>
+    <%= image_tag 'cat', alt: "item image" %>
+
   <% end %>
   <div class="card-body">
     <h5 class="card-title"><%= @item.title %></h5>
