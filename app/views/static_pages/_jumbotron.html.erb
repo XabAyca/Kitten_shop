@@ -7,7 +7,7 @@
           l’opportunite unique d’acquerir des photos de chat qui voudront
           bientot plus que des cartes pokemon !
         </p>
-        <button href='<%= new_user_session_path %>'class="hero__cta btn ">Acheter une photo de chat</button>
+        <%= button_to "Acheter une photo de chat", new_user_session_path, class:'hero__cta btn' %>
       </div>
 	  <div class="hero__img">
 	<%= image_tag("cats_hero_image.png") %>
