@@ -8,7 +8,14 @@
     <p>
         Votre commande n° <%= @order.id %>
     </p>
-
-    <p>Votre commande est en route,  bonne journée !</p>
+    <%@order.items.each do |item|%>
+      <div>
+        <% if item.item_image.attached? %>
+          <p><%= item.item_image%></p>
+        <% else %>
+          <p><%= item.image_url%></p>
+        <% end %>
+      </div>
+    <% end %>
   </body>
 </html>
