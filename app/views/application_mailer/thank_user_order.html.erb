@@ -12,10 +12,10 @@
     <%@order.items.each do |item| %>
       <%= email_image_tag(item.item_image)  %>
       <%= email_image_tag(item.item_url) %>
-       <%= image_tag item.item_image , style:"width: 25%"%>
-      <%= image_tag item.item_url , style:"width: 25%" %>
-	  <%= image_tag url_for(order.item.image_url) %>
-	   <%= image_tag url_for(order.item.image_url) %>
+       <%= image_tag item.item_image , style:"width: 25%", alt: "img"%>
+      <%= image_tag item.item_url , style:"width: 25%", alt: "img" %>
+	  <%= image_tag url_for(order.item.image_url), alt: "img" %>
+	   <%= image_tag url_for(order.item.image_url) , alt: "img"%>
     <% end %>
 
   </body>
