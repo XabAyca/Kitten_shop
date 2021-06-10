@@ -1,7 +1,7 @@
 class ApplicationMailer < ActionMailer::Base
   default from: "webcat6@protonmail.com"
   layout 'mailer'
-
+  helper EmailHelper
 
   def thank_user_order(order)
     @order = order
