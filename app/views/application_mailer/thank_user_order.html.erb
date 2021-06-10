@@ -12,9 +12,9 @@
     <%@order.items.each do |item| %>
 
         <% if item.item_image.attached? %>
-    <%= email_image_tag item.item_image %>
+    <%= email_image_tag(item.item_image) %>
     <% else %>
-    <%= email_image_tag item.image_url %>
+    <%= email_image_tag(item.image_url )%>
     <% end %>
     </div>
     <% end %>
