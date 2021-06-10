@@ -1,19 +1,23 @@
 <br>
-<br>
 
-<div style="height:80vh">
-<div class="card block-center" style="width: 20rem;">
-  <% if @item.item_image.attached? %>
-  <%= image_tag @item.item_image, alt: "item image" %>
-  <% else %>
-  <%= image_tag @item.image_url,height:400, alt: "item image" %>
-  <% end %>
-  <div class="card-body">
-    <h5 class="card-title"><%= @item.title %></h5>
-    <p class="card-text"><%= @item.description %></p>
-	<% if !!current_user %>
-	<%= button_to "Ajouter au panier", user_cart_path(current_user.cart.id), method: "put", params: { :item_id => @item.id }, class:'btn btn__primary' %>
-	<% end %>
+
+<div class='mb-5'>
+  <div class="card block-center" style="width: 20rem;">
+    <div class='card__img'>
+    <% if @item.item_image.attached? %>
+    <%= image_tag @item.item_image, alt: "item image" %>
+    <% else %>
+    <%= image_tag @item.image_url,height:400, alt: "item image" %>
+    <% end %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @item.title %></h5>
+      <p class="card-text"><%= @item.description %></p>
+      <h6> <%=@item.price%> €<h6>
+    <% if !!current_user %>
+    <%= button_to "Ajouter au panier", user_cart_path(current_user.cart.id), method: "put", params: { :item_id => @item.id }, class:'btn btn__primary' %>
+    <% end %>
+    
+    </div>
   </div>
-</div>
 </div>

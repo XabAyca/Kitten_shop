@@ -11,9 +11,9 @@
     <%@order.items.each do |item|%>
       <div>
         <% if item.item_image.attached? %>
-          <p><%= item.item_image%></p>
+          <%= image_tag item.item_image, style: "width: 50px", :crop => :fill %>
         <% else %>
-          <p><%= item.image_url%></p>
+          <%= image_tag item.image_url, style: "width: 50px", :crop => :fill %>
         <% end %>
       </div>
     <% end %>
