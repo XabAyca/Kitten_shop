@@ -23,9 +23,9 @@
 	   <div class="profile__order order__card">
 	   	<div class=" order__img">
 		    <% if order.items[0].item_image.attached? %> 
-        <%= image_tag item.item_image,height:50, alt: "cat"%>
+        <%= image_tag order.items[0].item_image,height:50, alt: "cat"%>
 		<% else %>
-        <%= image_tag 'cats_hero_image', alt: "cat" %>
+        <%= image_tag order.items[0].image_url , alt: "cat" %>
 		 <% end %>
 		   
 		   </div>
