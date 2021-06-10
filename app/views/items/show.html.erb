@@ -6,7 +6,12 @@
   <% if @item.item_image.attached? %>
   <%= image_tag @item.item_image, alt: "item image" %>
   <% else %>
+<<<<<<< HEAD
+    <%= image_tag 'cat', alt: "item image" %>
+
+=======
   <%= image_tag @item.image_url,height:400, alt: "item image" %>
+>>>>>>> 6675b5bb20598b2c3e429b5c96e25126b0881543
   <% end %>
   <div class="card-body">
     <h5 class="card-title"><%= @item.title %></h5>
