@@ -14,10 +14,10 @@
       <div class="name">
         <%= current_user.first_name %> <%= current_user.last_name %>
       </div>
-      <button class="button edit__button">Edit profile</button>
+			<%= button_to "Modifier profil", edit_user_registration_path(current_user.id), method: "get", class:'btn btn__secondary mt-2 item_to_cart' %>
     </div>
     <div class="orders__wrapper">
-      <h3 class="orders__title">Order</h3>
+      <h3 class="orders__title">Commandes</h3>
 	  <div class="orders">
 	  <% current_user.orders.each do |order|%>
 	   <div class="profile__order order__card">
@@ -30,9 +30,9 @@
 		   
 		   </div>
 		<div class=" order__text">
-		<h5 class="order__card__title">Order#<%= order.id%></h5>
+		<h5 class="order__card__title">Commande#<%= order.id%></h5>
 		<%= order.total %>€
-		<button class="order__card__button">Voir</button>
+		<%= button_to "Voir", order_path(order.id), method:'get', class:'btn btn__primary' %>
 		</div>
 	   </div>
 	  <%end%>

@@ -1,11 +1,11 @@
 <div>
-  <p>Date <%=DateTime.now.strftime('%d/%m/%Y')%></p>
+  <p>Date <%=@order.created_at.strftime('%d/%m/%Y')%></p>
 </div>
 
 <hr class='my-2'>
 
 <div id='card-items'>
-  <%@cart.items.each do |item|%>
+  <%@order.items.each do |item|%>
 
     <div class='flex-row d-flex justify-content-between align-items-center' >
 
@@ -19,9 +19,6 @@
       </div>  
 
       <div class='flex-row d-flex align-items-center'>
-        <a href="<%=item_path(item.id)%>" data-method='delete' data-remote='true' class="me-4 trash">
-          Supprimer
-        </a>
         <h5><small class="text-muted">1 x</small> <%= item.price%> €</h5>
       </div> 
       

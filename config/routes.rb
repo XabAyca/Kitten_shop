@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post "/orders", to: "orders#create"
   get "/team", to: "static_pages#team"
 
+  resources :orders, only: [:show]
   ### Admin routes ###
   namespace :admin do
     root "admin#index"
