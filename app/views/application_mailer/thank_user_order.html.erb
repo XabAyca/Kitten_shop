@@ -8,14 +8,10 @@
     <p>
         Votre commande n° <%= @order.id %>
     </p>
-   
-    <%@order.items.each do |item| %>
 
-        <% if item.item_image.attached? %>
-    <%= email_image_tag(item.item_image) %>
-    <% else %>
-    <%= email_image_tag(item.image_url )%>
-    <% end %>
+    <%@order.items.each do |item| %>
+      <div>
+      <%= email_image_tag(item.item_image.blob.filename) %>
     </div>
     <% end %>
   </body>
