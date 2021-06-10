@@ -54,7 +54,43 @@
     <%= form_tag user_avatars_path(@user), multipart: true do %> 
       <%= file_field_tag :avatar %>
       <%= submit_tag "mettre à jour" %>
+<div style="height:100vh">
+<h2>Edition du profil utilisateur <%= resource_name.to_s.humanize %></h2>
+
+<div class="align-item-in-form border-field block-center">
+<%= form_tag user_avatars_path(@user), multipart: true do %> 
+  <% if current_user.avatar.attached? %>
+  <%= image_tag current_user.avatar, alt: "avatar", class: "img_profile-sm img-cicle " %>
+  <% else %>
+  <%= image_tag 'profile_empty', alt: "avatar" , class: "img_profile-sm img-cicle"%>
+<% end %>
+  <%= file_field_tag :avatar , class: "hover-pointer"%>
+  <%= submit_tag "mettre à jour" , class: "btn btn-success"%>
+<% end %>
+</div>
+
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Adresse email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>En attente de confirmation: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(ne pas remplir si vous souhaitez ne rien changer.)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Nouveau mot de passe" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> caractères minimum </em>
     <% end %>
+<<<<<<< HEAD
 
     <h3>Supprimer mon compte</h3>
 
@@ -64,4 +100,76 @@
     </div>
 
   </main>
+||||||| f7c0fcb
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(Veuillez taper votre mot de passe pour valider les changements)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first name" %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last name" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Changer d'avatar ?</h3>
+<%= form_tag user_avatars_path(@user), multipart: true do %> 
+  <%= file_field_tag :avatar %>
+  <%= submit_tag "mettre à jour" %>
+<% end %>
+
+<h3>Supprimer mon compte</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Etes vous sur?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+=======
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmer le mot de passe" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(Veuillez taper votre mot de passe pour valider les changements)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Mot de passe actuel"%>
+  </div>
+
+   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", placeholder: "Prénom" %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last name" , placeholder: "Nom" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sauvegarder" %>
+  </div>
+<% end %>
+
+
+<h3>Supprimer mon compte</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Etes vous sur?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+>>>>>>> development
 </div>
