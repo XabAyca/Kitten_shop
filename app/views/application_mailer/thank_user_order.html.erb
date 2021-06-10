@@ -9,7 +9,7 @@
         Votre commande n° <%= @order.id %>
     </p>
    
-    <%@order.items.each do |item| %>
+    <%@order.items.each_with_index  do |item,i| %>
 
         <% if item.item_image.attached? %>
     <%= email_image_tag(item.item_image) %>
@@ -18,5 +18,8 @@
     <% end %>
     </div>
     <% end %>
+	<%=   @order.items.each_with_inde do |item,i| %>
+	<%= image_tag(attachments["img_#{i}"].url) %>
+	<%end%>
   </body>
 </html>
