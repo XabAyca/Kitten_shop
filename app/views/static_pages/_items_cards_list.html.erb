@@ -3,7 +3,7 @@
 
   <div class="card">
     <div class="card__img">
-      <img src="<%= item.image_url %>" alt="Card image cap" />
+      <%= image_tag item.item_image, alt: "item image" %>
     </div>
     <div class="card__text">
       <h4 class="card__title"><%= item.title %></h4>
