@@ -22,7 +22,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-
+main{
+	min-height: calc(100vh - 140px);
+}
 html {
   min-height: 100%;
   position: relative;
@@ -286,7 +288,7 @@ html {
 }
 .profile {
   display: grid;
-  grid-template-columns: 150px 1fr 1fr;
+  grid-template-columns: 170px 1fr 1fr;
   align-items: center;
   justify-content: center;
 }
@@ -303,4 +305,18 @@ html {
   background-color: var(--green500);
   color: var(--beige);
   border-radius: 19px;
+}
+
+/*order profile*/
+.orders__wrapper{
+	margin-top:50px;
+}
+.orders__title{
+	font-size: 26px;
+	font-family: var(--primaryFont);
+}
+.orders{
+	display:grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-gap:20px;
 }
