@@ -14,11 +14,11 @@
 
 .sidebar {
   position: absolute;
-  top: 90px;
+  top: 75px;
   /* rtl:raw:
   right: 0;
   */
-  bottom: 50px;
+  bottom: 0px;
   /* rtl:remove */
   left: 0;
   z-index: 0; /* Behind the navbar */

@@ -1,5 +1,5 @@
 <h4 id='list-items'>Liste des produits (<%=@items.count%>)</h4>
-<div class="table-responsive mb-5">
+<div class="table-responsive">
   <table class="table table-striped table-sm">
     <thead>
       <tr>
@@ -19,11 +19,14 @@
             <td><%=item.title%></td>
             <td><%=item.price %> € </td>
             <td><%=item.created_at%></td>
-            <td><a href=<%=item_path(item.id)%> class='btn btn-outline-info btn-sm' %>Voir</a></td>
-            <td><a href=<%=edit_admin_item_path(item.id)%> class='btn btn-outline-warning btn-sm' %>Modifier</a></td>
-            <td><a href=<%=admin_item_path(item.id)%> data-method='delete' data-confirm='Valider la suppression ?' data-remote='true' class='btn btn-outline-danger btn-sm' %>Supprimer</a></td>
+            <td><a href=<%=item_path(item.id)%> class='btn btn__secondary btn-sm' %>Voir</a></td>
+            <td><a href=<%=edit_admin_item_path(item.id)%> class='btn btn__secondary btn-sm' %>Modifier</a></td>
+            <td><a href=<%=admin_item_path(item.id)%> data-method='delete' data-confirm='Valider la suppression ?' data-remote='true' class='btn btn__secondary btn-sm' %>Supprimer</a></td>
           </tr>  
         <%end%>
     </tbody>
   </table>
+</div>
+<div class="mt-2 mb-5">
+  <%=render 'admin/admin/back_btn'%>
 </div>

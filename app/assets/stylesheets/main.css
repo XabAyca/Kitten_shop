@@ -28,11 +28,11 @@ html {
 /* Navbar & footer */
 
 .foot {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    z-index: 2;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 2;
 }
 
 .cart-count {
