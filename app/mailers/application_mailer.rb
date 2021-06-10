@@ -2,6 +2,7 @@ class ApplicationMailer < ActionMailer::Base
   default from: "webcat6@protonmail.com"
   layout 'mailer'
   helper EmailHelper
+  
 
   def thank_user_order(order)
     @order = order
@@ -12,6 +13,5 @@ class ApplicationMailer < ActionMailer::Base
     @order = order
     mail(to: admin.email, subject: 'Commande sur Kitten shop')
   end
-
 
 end

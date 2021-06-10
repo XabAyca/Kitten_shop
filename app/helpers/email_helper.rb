@@ -4,4 +4,3 @@ module EmailHelper
       image_tag attachments[image].url, **options
     end
 end
-  
