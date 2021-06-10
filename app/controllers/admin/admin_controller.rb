@@ -3,6 +3,7 @@ class Admin::AdminController < ApplicationController
 
   def index
     @orders = Order.all
+    @user = User.find(current_user.id)
   end
 
 end

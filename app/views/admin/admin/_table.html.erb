@@ -18,7 +18,7 @@
               <td><%=@orders[index].user.email%></td>
               <td><%=@orders[index].items.count%></td>
               <td><%=@orders[index].total%> €</td>
-              <td><%=@orders[index].created_at%></td>
+              <td><%=@orders[index].created_at.strftime('%d/%m/%Y')%></td>
             </tr>
           <%end%>  
         <%else%>
