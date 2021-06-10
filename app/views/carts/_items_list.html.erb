@@ -13,7 +13,7 @@
 	  <% if item.item_image.attached? %> 
         <%= image_tag item.item_image,height:50, alt: "item_image", class:'item-img me-3' %>
 		<% else %>
-        <%= image_tag 'profile_empty', alt: "avatar" , class: "img_profile"%>
+        <%= image_tag item.image_url,height:50, alt: "avatar" , class: 'item-img me-3'%>
 		 <% end %>
         <h5><%= item.title%></h5>
       </div>  

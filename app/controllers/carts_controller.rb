@@ -11,7 +11,7 @@ class CartsController < ApplicationController
     items_id = current_user.cart.items.map { |item| item.id }
 
     if (!!items_id.include?(params[:item_id].to_i))
-      flash.alert = "Item already in cart !!!"
+      flash.alert = "Produit déjà dans le panier"
       redirect_to root_path
     else
       new_item = JointItemsCart.create(cart_id: @cart.id, item_id: params[:item_id])

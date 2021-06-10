@@ -1,6 +1,15 @@
-<div class="jumbotron jumbotron-fluid bg-light">
-  <div class="container">
-    <h1 class="display-4 text-center">Welcome to the Cat Market</h1>
-    <p class="lead text-center">You can add to your card all the picks !!!</p>
-  </div>
+ <div class="hero">
+      <div class="hero__text">
+        <h1 class="hero__title tagline">
+          Collectionnez vos photos de chats préfèrés !
+        </h1>
+        <p class="description hero__description">
+          l’opportunite unique d’acquerir des photos de chat qui voudront
+          bientot plus que des cartes pokemon !
+        </p>
+        <button href='<%= new_user_session_path %>'class="hero__cta btn ">Acheter une photo de chat</button>
+      </div>
+	  <div class="hero__img">
+	<%= image_tag("cats_hero_image.png") %>
+	  </div>
 </div>

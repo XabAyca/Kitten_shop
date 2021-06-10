@@ -6,7 +6,7 @@
       <% if item.item_image.attached? %>
   <%= image_tag item.item_image, alt: "item_image" %>
   <% else %>
-  <p>no real img</p>
+  <%= image_tag item.image_url, alt: "item_image" %>
 <% end %>
 	 	
     </div>
@@ -14,11 +14,10 @@
       <h4 class="card__title"><%= item.title %></h4>
       <p class="card__description"><%= item.description %></p>
       <div class="card__buttons">
-        <%= link_to "Voir", item_path(item), class: "card__button btn
-                                                                                                                                            btn__primary first" %>
-        <button class="card__button btn btn__secondary">
-          Ajouter au panier
-        </button>
+        <%= link_to "Voir", item_path(item), class: "card__button btn  btn__primary first" %>
+      <%if user_signed_in?%>
+        <%= button_to "Ajouter au panier", user_cart_path(current_user.id,current_user.cart.id), method: "put",remote:true, params: { :item_id => item.id }, class:'btn btn__secondary mt-2 item_to_cart' %>
+      <%end%>
       </div>
     </div>
   </div>
