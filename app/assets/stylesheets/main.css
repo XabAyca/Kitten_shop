@@ -325,4 +325,41 @@ html {
 	display:grid;
 	grid-template-columns: repeat(3,1fr);
 	grid-gap:20px;
+	margin-top:20px
+}
+
+.order__card{
+	
+	background:white;
+	filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+	border-radius: 8px;
+}
+.order__img{
+	height: 240px;
+	filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.10));
+	background:var(--beige)
+}
+.order__img img{
+	width: 100%;
+	height: 100% !important;
+	object-fit: contain;
+}
+.order__text{
+	padding:15px;
+	font-size:16px;
+	display:flex;
+	flex-direction: column;
+	padding-bottom: 10px;
+}
+.order__card__title{
+	font-size:18px;
+	font-weight: 600;
+}
+.order__card__button{
+	padding: 5px 15px;
+	border:none;
+	background:var(--green500);
+	border-radius: 2px;
+	color:var(--beige);
+	align-self: flex-end;
 }
