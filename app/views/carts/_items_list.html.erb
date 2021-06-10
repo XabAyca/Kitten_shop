@@ -1,0 +1,32 @@
+<div>
+  <p>Date <%=DateTime.now.strftime('%d/%m/%Y')%></p>
+</div>
+
+<hr class='my-2'>
+
+<div id='card-items'>
+  <%@cart.items.each do |item|%>
+
+    <div class='flex-row d-flex justify-content-between align-items-center' >
+
+      <div class='flex-row d-flex align-items-center'>
+	  <% if item.item_image.attached? %> 
+        <%= image_tag item.item_image,height:50, alt: "item_image", class:'item-img me-3' %>
+		<% else %>
+        <%= image_tag item.image_url,height:50, alt: "avatar" , class: 'item-img me-3'%>
+		 <% end %>
+        <h5><%= item.title%></h5>
+      </div>  
+
+      <div class='flex-row d-flex align-items-center'>
+        <a href="<%=item_path(item.id)%>" data-method='delete' data-remote='true' class="me-4 trash">
+          Supprimer
+        </a>
+        <h5><small class="text-muted">1 x</small> <%= item.price%> €</h5>
+      </div> 
+      
+    </div>
+    <hr class='my-2' id='separator-items'> 
+  <%end%>
+
+</div>
