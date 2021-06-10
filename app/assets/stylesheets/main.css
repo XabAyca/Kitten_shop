@@ -269,8 +269,14 @@ html {
 }
 
 .back_link:hover {
-  color: var(--green700);
-  transform: rotateZ(5deg) translate(-15px);
+    color: var(--green700);
+    transform: rotateZ(5deg) translate(-15px);
+}
+.nav-link{
+    transition:400ms
+}
+.nav-link:hover{
+    transform:translate(7px)
 }
 
 /*profile*/

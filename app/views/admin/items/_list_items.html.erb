@@ -18,7 +18,7 @@
             <td><%=item.id%></td>
             <td><%=item.title%></td>
             <td><%=item.price %> € </td>
-            <td><%=item.created_at%></td>
+            <td><%=item.created_at.strftime('%d/%m/%Y')%></td>
             <td><a href=<%=item_path(item.id)%> class='btn btn__secondary btn-sm' %>Voir</a></td>
             <td><a href=<%=edit_admin_item_path(item.id)%> class='btn btn__secondary btn-sm' %>Modifier</a></td>
             <td><a href=<%=admin_item_path(item.id)%> data-method='delete' data-confirm='Valider la suppression ?' data-remote='true' class='btn btn__secondary btn-sm' %>Supprimer</a></td>
