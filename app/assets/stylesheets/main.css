@@ -195,10 +195,16 @@ html {
 /*card */
 
 .card {
+  min-width: 300px;
   max-width: 350px;
   background: var(--beige);
   border-radius: 6px 6px 4px 4px;
   filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+  overflow: hidden;
+  transition: 400ms;
+}
+.card:hover{
+  transform:scale(1.03) rotate(1deg)
 }
 
 .card__img {
@@ -212,6 +218,7 @@ html {
   height: 250px;
   object-fit: cover;
   border-radius: 6px 6px 0px 0px;
+  margin: auto;
 }
 
 .card__text {

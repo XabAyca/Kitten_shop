@@ -1,4 +1,4 @@
-<div class="cards__wrapper">
+<div class="cards__wrapper pb-3">
   <% @items.each do |item| %>
 
   <div class="card">
@@ -16,7 +16,7 @@
       <div class="card__buttons">
         <%= link_to "Voir", item_path(item), class: "card__button btn  btn__primary first" %>
       <%if user_signed_in?%>
-        <%= button_to "Ajouter au panier", user_cart_path(current_user.id,current_user.cart.id), method: "put",remote:true, params: { :item_id => item.id }, class:'btn btn__secondary mt-2 item_to_cart' %>
+        <%= button_to "Ajouter au panier", user_cart_path(current_user.id,current_user.cart.id), method: "put", params: { :item_id => item.id }, class:'btn btn__secondary mt-2 item_to_cart' %>
       <%end%>
       </div>
     </div>
