@@ -1,6 +1,8 @@
-<hr>
+<br>
+<br>
+
 <div style="height:80vh">
-<div class="card" style="width: 20rem;">
+<div class="card block-center" style="width: 20rem;">
   <% if @item.item_image.attached? %>
   <%= image_tag @item.item_image, alt: "item image" %>
   <% else %>
@@ -15,4 +17,3 @@
   </div>
 </div>
 </div>
-<hr>
