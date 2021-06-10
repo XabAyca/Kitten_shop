@@ -7,8 +7,8 @@ Cette application est une boutique en ligne de photos de chatons, réalisée dan
 Voici notre lien heroku pour tester le site directement :`https://thp-catstore.herokuapp.com/` . Le dernier passage en Prod s'est fait en douceur donc tout devrait bien se passer !  
 Pour vous connecter, 2 choix d'offrent à vous :  
 Utiliser le Admin de test:  
-* Email Admin--> `xabii@yopmail.com`  
-* Mot de passe --> `xabi123`  
+* Email Admin--> `foobar@gmail.com`  
+* Mot de passe --> `foobar`  
 Ou passer par le process d'inscription classique.  
 
 ## OUTILS:
