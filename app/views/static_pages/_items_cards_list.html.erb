@@ -3,14 +3,19 @@
 
   <div class="card">
     <div class="card__img">
-      <img src="<%= item.image_url %>" alt="Card image cap" />
+      <% if item.item_image.attached? %>
+  <%= image_tag item.item_image, alt: "item_image" %>
+  <% else %>
+  <p>no real img</p>
+<% end %>
+	 	
     </div>
     <div class="card__text">
       <h4 class="card__title"><%= item.title %></h4>
       <p class="card__description"><%= item.description %></p>
       <div class="card__buttons">
         <%= link_to "Voir", item_path(item), class: "card__button btn
-                                btn__primary first" %>
+                                                                                                                                btn__primary first" %>
         <button class="card__button btn btn__secondary">
           Ajouter au panier
         </button>
