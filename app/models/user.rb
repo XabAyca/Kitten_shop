@@ -10,6 +10,8 @@ class User < ApplicationRecord
   after_create :user_cart
   has_many :order
 
+  has_one_attached :avatar
+
   def user_cart
     Cart.create(user_id: self.id)
   end
