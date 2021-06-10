@@ -145,9 +145,30 @@ html {
   margin-right: 10px;
   margin-bottom: 30px;
 }
+.hero__img__mobile{
+	display:none
+}
+@media(max-width:700px){
+	.hero{
+		flex-direction: column;
+	}
+	.hero__img__lg{
+		display:none
+	}
+	.hero__img__mobile{
+		display:block 
+	}
+	.tagline{
+		width:100%;
+		font-size: 32px;
+		text-align: center;
+	}
+	
+}
 
-.hero__img {
-  height: 550px;
+.hero__img__lg {
+	margin-top:50px;
+  	height: 550px;
 }
 
 .hero__img img {
@@ -185,13 +206,19 @@ html {
 
 .cards__wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 60px;
   grid-row-gap: 50px;
   margin: 0px 80px;
   margin-top: 40px;
 }
-
+@media(max-width:800px){
+	.cards__wrapper {
+		display:flex;
+		flex-direction: column;
+	}
+	
+}
 /*card */
 
 .card {
