@@ -426,3 +426,7 @@ html {
 		flex-direction: column;
 	}
 }
+
+.rounded{
+	border-radius:50% !important
+}
