@@ -31,6 +31,23 @@ html {
   height: 50px;
   z-index: 2;
 }
+
+.cart-list{
+	box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.201);
+	min-height: 500px;
+}
+.item-img{
+	float: left;
+}
+.trash{
+	text-decoration: none;
+	color: var(--warmBlack);
+	transition: 400ms;
+}
+.trash:hover{
+	color:red;
+	transform: scale(1.2);
+}
 /*hero*/
 .hero {
 	display: flex;
@@ -148,4 +165,15 @@ html {
 }
 .first {
   margin-right: 5px;
+}
+
+.back_link{
+  display: inline-block;
+  text-decoration: none;
+  color:var(--warmBlack);
+  transition: 400ms;
+}
+.back_link:hover{
+  color: var(--green700);
+  transform: rotateZ(5deg) translate(-15px);
 }
