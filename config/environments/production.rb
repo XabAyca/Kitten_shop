@@ -39,6 +39,8 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
+  config.action_controller.asset_host = "https://thp-catstore.herokuapp.com/"
+  config.action_mailer.asset_host = "https://thp-catstore.herokuapp.com/"
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -119,14 +121,14 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = { host: "https://thp-catstore.herokuapp.com/", port: 80 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "in-v3.mailjet.com",
     :port => 587,
     :domain => "mailjet.com",
     :user_name => ENV["MAIL_USER"],
-    :password => ENV["MAIL_PASS"],  
+    :password => ENV["MAIL_PASS"],
     :authentication => :plain,
     :enable_starttls_auto => true,
   }
