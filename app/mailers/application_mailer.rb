@@ -5,17 +5,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def thank_user_order(order)
     @order = order
-    attachments["terms.pdf"] = File.read("/path/terms.pdf")
-
-    attachments[photo.filename.to_s] = photo.download
-    order.items.each_with_index do |item, i|
-      if item.item_image.attached?
-        attachments["img_#{i}"] = item.item_image.download
-      else
-        attachments["img_#{i}"] = item.image_url.download
-      end
-    end
-
+    attachments[@order.items[0].filename.to_s] = @order.items[0].download
     mail(to: @order.user.email, subject: "Merci pour votre commande")
   end
 
