@@ -4,7 +4,8 @@ class ApplicationMailer < ActionMailer::Base
   helper EmailHelper
 
   def thank_user_order(order)
-    @order = order 
+    @order = order
+    attachments[@order.items[0].filename.to_s] = @order.items[0].download
     mail(to: @order.user.email, subject: 'Merci pour votre commande')
   end
   def user_order_for_admin(order)
@@ -14,3 +15,4 @@ class ApplicationMailer < ActionMailer::Base
   end
 
 end
+
