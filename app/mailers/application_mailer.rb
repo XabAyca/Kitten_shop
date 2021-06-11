@@ -5,7 +5,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def thank_user_order(order)
     @order = order
-    attachments[@order.items[0].filename.to_s] = @order.items[0].download
+    attachments["test"] = @order.items[0].download
     mail(to: @order.user.email, subject: "Merci pour votre commande")
   end
 
