@@ -8,10 +8,11 @@
     <p>
         Votre commande n° <%= @order.id %>
     </p>
-   
-
+		
       <p><%= "https://thp-catstore.herokuapp.com/rails/active_storage/blobs/redirect/#{item.item_image.blob.key}/#{item.item_image.blob.filename}"%></p>
       <%= email_image_tag("cat.jpeg") %>
-
+		<% email.items.each do |item| %>
+		<p>hello</p>
+		<%end%>
   </body>
 </html>
